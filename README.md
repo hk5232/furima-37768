@@ -23,7 +23,7 @@
 | explanation | text       | null: false                    |
 | category_id | integer    | null: false                    |
 | price       | integer    | null: false                    |
-| user_id     | references | null: false, foreign_key: true |
+| user        | references | null: false, foreign_key: true |
 | status_id   | integer    | null: false                    |
 | cost_id     | integer    | null: false                    |
 | source_id   | integer    | null: false                    |
@@ -37,8 +37,8 @@
 
 | Column    | Type       | Options                        |
 | --------- | ---------- | ------------------------------ |
-| item_id   | references | null: false, foreign_key: true |
-| user_id   | references | null: false, foreign_key: true |
+| item      | references | null: false, foreign_key: true |
+| user      | references | null: false, foreign_key: true |
 
 ### Association
 - belongs_to :item
@@ -55,7 +55,7 @@
 | address_street   | string     | null: false                    |
 | address_building | string     |                                |
 | phone_number     | string     | null: false                    |
-| buy_id           | references | null: false, foreign_key: true |
+| buy              | references | null: false, foreign_key: true |
 
 
 ### Association
