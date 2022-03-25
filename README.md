@@ -4,9 +4,11 @@
 | ------------------ | ------ | ------------------------- |
 | email              | string | null: false, unique: true |
 | encrypted_password | string | null: false               |
-| name               | string | null: false               |
+| nickname               | string | null: false               |
 | last_name          | string | null: false               |
+| last_name_kana     | string | null: false               |
 | first_name         | string | null: false               |
+| first_name_kana    | string | null: false               |
 | birthday           | date   | null: false               |
 
 ### Association
@@ -29,7 +31,7 @@
 
 ### Association
 - belongs_to :user
-- has_one :buys
+- has_one :buy
 
 ## buysテーブル
 
@@ -45,14 +47,14 @@
 
 ## addressテーブル
 
-| Column           | Type       | Options                        |
-| ---------------- | ---------- | ------------------------------ |
-| postal_code      | string     | null: false                    |
-| state            | string     | null: false                    |
-| address_city     | string     | null: false                    |
-| address_street   | string     | null: false                    |
-| address_building | string     |                                |
-| phone_number     | integer    | null: false                    |
+| Column              | Type    | Options                        |
+| ------------------- | ------- | ------------------------------ |
+| postal_code         | string  | null: false                    |
+| source_id	          | integer | null: false                    |
+| address_city_id     | integer | null: false                    |
+| address_street_id   | integer | null: false                    |
+| address_building_id | integer |                                |
+| phone_number        | integer | null: false                    |
 
 
 ### Association
