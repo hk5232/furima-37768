@@ -79,7 +79,7 @@ RSpec.describe User, type: :model do
         @user.password = Faker::Internet.password(min_length: 129)
         @user.password_confirmation = @user.password
         @user.valid?
-        expect(@user.errors.full_messages).to include("Password is too long (maximum is 128 characters)")
+        expect(@user.errors.full_messages).to include('Password is too long (maximum is 128 characters)')
       end
       it 'passwordが数字と英字の両方が含まれていないと登録できない' do
         @user.password = '123456'
@@ -90,22 +90,22 @@ RSpec.describe User, type: :model do
       it 'last_nameが全角でないと登録できない' do
         @user.last_name = 'ﾔﾏﾀﾞ'
         @user.valid?
-        expect(@user.errors.full_messages).to include "Last name は全角で入力して下さい。"
+        expect(@user.errors.full_messages).to include 'Last name は全角で入力して下さい。'
       end
       it 'first_nameが全角でないと登録できない' do
         @user.first_name = 'ﾀﾛｳ'
         @user.valid?
-        expect(@user.errors.full_messages).to include "First name は全角で入力して下さい。"
+        expect(@user.errors.full_messages).to include 'First name は全角で入力して下さい。'
       end
       it 'last_name_kanaが全角カナでないと登録できない' do
         @user.last_name_kana = '山田'
         @user.valid?
-        expect(@user.errors.full_messages).to include "Last name kana は全角カタカナで入力して下さい。"
+        expect(@user.errors.full_messages).to include 'Last name kana は全角カタカナで入力して下さい。'
       end
       it 'first_name_kanaが全角カナでないと登録できない' do
         @user.first_name_kana = '太郎'
         @user.valid?
-        expect(@user.errors.full_messages).to include "First name kana は全角カタカナで入力して下さい。"
+        expect(@user.errors.full_messages).to include 'First name kana は全角カタカナで入力して下さい。'
       end
     end
   end
