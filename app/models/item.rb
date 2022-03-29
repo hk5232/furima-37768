@@ -8,9 +8,10 @@ class Item < ApplicationRecord
   has_one_attached :image
   belongs_to :user
 
-  validates :image, presence: { message: "は必須項目です" }
-  validates :name, presence: { message: "は必須項目です" }
-  validates :explanation, presence: { message: "は必須項目です" }
-  validates :category_id, :status_id, :cost_id, :source_id, :shipment_id, numericality: { other_than: 1 , message: "は必須項目です。"}
-  validates :price, presence: { message: "は必須項目です" }, inclusion: { in: (300..9999999), allow_blank: true, message: "は300~9999999(半角)まで設定可能です。カンマは省略して記載してください。"}
+  validates :image, presence: { message: 'は必須項目です' }
+  validates :name, presence: { message: 'は必須項目です' }
+  validates :explanation, presence: { message: 'は必須項目です' }
+  validates :category_id, :status_id, :cost_id, :source_id, :shipment_id, numericality: { other_than: 1, message: 'は必須項目です。' }
+  validates :price, presence: { message: 'は必須項目です' },
+                    inclusion: { in: (300..9_999_999), allow_blank: true, message: 'は300~9999999(半角)まで設定可能です。カンマは省略して記載してください。' }
 end

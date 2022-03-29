@@ -15,61 +15,61 @@ RSpec.describe Item, type: :model do
       it 'imageが空では保存できない' do
         @item.image = nil
         @item.valid?
-        expect(@item.errors.full_messages).to include("Image は必須項目です")
+        expect(@item.errors.full_messages).to include('Image は必須項目です')
       end
 
       it 'nameが空では保存できない' do
         @item.name = ''
         @item.valid?
-        expect(@item.errors.full_messages).to include("Name は必須項目です")
+        expect(@item.errors.full_messages).to include('Name は必須項目です')
       end
-      
+
       it 'explanationが空では保存できない' do
         @item.explanation = ''
         @item.valid?
-        expect(@item.errors.full_messages).to include("Explanation は必須項目です")
+        expect(@item.errors.full_messages).to include('Explanation は必須項目です')
       end
-        
+
       it 'category_idが---では保存できない' do
-          @item.category_id = (1)
-          @item.valid?
-          expect(@item.errors.full_messages).to include("Category は必須項目です。")
+        @item.category_id = (1)
+        @item.valid?
+        expect(@item.errors.full_messages).to include('Category は必須項目です。')
       end
-        
+
       it 'status_idが---では保存できない' do
         @item.status_id = (1)
         @item.valid?
-        expect(@item.errors.full_messages).to include("Status は必須項目です。")
+        expect(@item.errors.full_messages).to include('Status は必須項目です。')
       end
-          
+
       it 'cost_idが---では保存できない' do
         @item.cost_id = (1)
         @item.valid?
-        expect(@item.errors.full_messages).to include("Cost は必須項目です。")
+        expect(@item.errors.full_messages).to include('Cost は必須項目です。')
       end
 
       it 'source_idが---では保存できない' do
         @item.source_id = (1)
         @item.valid?
-        expect(@item.errors.full_messages).to include("Source は必須項目です。")
+        expect(@item.errors.full_messages).to include('Source は必須項目です。')
       end
 
       it 'shipment_idが---では保存できない' do
         @item.shipment_id = (1)
         @item.valid?
-        expect(@item.errors.full_messages).to include("Shipment は必須項目です。")
+        expect(@item.errors.full_messages).to include('Shipment は必須項目です。')
       end
 
       it 'priceが空では保存できない' do
         @item.price = ''
         @item.valid?
-        expect(@item.errors.full_messages).to include("Price は必須項目です")
+        expect(@item.errors.full_messages).to include('Price は必須項目です')
       end
 
       it 'priceが300~9999999以外では保存できない' do
         @item.price = '299'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Price は300~9999999(半角)まで設定可能です。カンマは省略して記載してください。")
+        expect(@item.errors.full_messages).to include('Price は300~9999999(半角)まで設定可能です。カンマは省略して記載してください。')
       end
     end
   end

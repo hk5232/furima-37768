@@ -3,11 +3,11 @@ FactoryBot.define do
     name                  { '見本' }
     explanation           { '見本です' }
     price                 { 1000 }
-    category_id           {2}
-    status_id             {2}
-    cost_id               {2}
-    source_id             {2}
-    shipment_id           {2}
+    category_id           { 2 }
+    status_id             { 2 }
+    cost_id               { 2 }
+    source_id             { 2 }
+    shipment_id           { 2 }
 
     association :user
 
