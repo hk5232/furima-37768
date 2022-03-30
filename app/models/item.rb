@@ -7,6 +7,7 @@ class Item < ApplicationRecord
   belongs_to_active_hash :status
   has_one_attached :image
   belongs_to :user
+  has_one :buy
 
   validates :image, presence: { message: 'は必須項目です' }
   validates :name, presence: { message: 'は必須項目です' }
