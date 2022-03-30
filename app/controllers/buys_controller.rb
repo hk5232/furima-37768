@@ -1,11 +1,17 @@
 class BuysController < ApplicationController
+  before_action :item_set, only: [:index, :create]
+  before_action :skip_user, unless: proc { user_signed_in? }
+  before_action :skip_user, if: proc { user_signed_in? && current_user.id == @item.user.id? }
+
+
   def index
     @buy_address = BuyAddress.new
-    @item = Item.find(params[:item_id])
+    if @item.buy.present?
+      redirect_to root_path
+    end
   end
 
   def create
-    @item = Item.find(params[:item_id])
     @buy_address = BuyAddress.new(buy_params)
      if @buy_address.save
       redirect_to root_path
@@ -18,6 +24,14 @@ class BuysController < ApplicationController
 
   def buy_params
     params.require(:buy_address).permit(:postal_code, :source_id, :address_city, :address_street, :address_building, :phone_number).merge(user_id: current_user.id, item_id: params[:item_id])
+  end
+
+  def item_set
+    @item = Item.find(params[:item_id])
+  end
+
+  def skip_user
+    redirect_to root_path
   end
 
 end
