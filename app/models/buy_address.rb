@@ -8,7 +8,7 @@ class BuyAddress
   validates :phone_number, presence:  { message: 'は必須項目です' }, format: { with: /\A\d{10}$|^\d{11}\z/, allow_blank: true, message: 'は10から11桁の半角数字でのみ登録可能です' }
   validates :item_id, presence: true
   validates :user_id, presence: true
-  validates :source_id, numericality: { other_than: 1, message: 'は必須項目です。' }
+  validates :source_id, numericality: { other_than: 1, message: 'は必須項目です' }
 
   def save
     return false if invalid?
