@@ -105,6 +105,11 @@ RSpec.describe BuyAddress, type: :model do
         expect(@buy.errors.full_messages).to include("Item can't be blank")
       end
 
+      it "tokenが空では購入できないこと" do
+        @buy.token = nil
+        @buy.valid?
+        expect(@buy.errors.full_messages).to include("Token カードは全て必須項目です")
+      end
     end
   end
 end
