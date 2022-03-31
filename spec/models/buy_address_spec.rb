@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe BuyAddress, type: :model do 
+RSpec.describe BuyAddress, type: :model do
   before do
     @user = FactoryBot.create(:user)
     @item = FactoryBot.create(:item)
@@ -18,7 +18,6 @@ RSpec.describe BuyAddress, type: :model do
         @buy.address_building = ''
         expect(@buy).to be_valid
       end
-
     end
     context '商品購入できない場合' do
       it '郵便番号が空では保存できない' do
@@ -105,10 +104,10 @@ RSpec.describe BuyAddress, type: :model do
         expect(@buy.errors.full_messages).to include("Item can't be blank")
       end
 
-      it "tokenが空では購入できないこと" do
+      it 'tokenが空では購入できないこと' do
         @buy.token = nil
         @buy.valid?
-        expect(@buy.errors.full_messages).to include("Token カードは全て必須項目です")
+        expect(@buy.errors.full_messages).to include('Token カードは全て必須項目です')
       end
     end
   end

@@ -25,8 +25,9 @@ class ItemsController < ApplicationController
   def edit
     if @item.buy.present?
       redirect_to action: :index
+      return
     end
-    
+
     if !user_signed_in?
       redirect_to new_user_session_path
     elsif user_signed_in? && !(current_user == @item.user)
