@@ -1,7 +1,7 @@
 class BuysController < ApplicationController
   before_action :item_set, only: [:index, :create]
   before_action :skip_user, unless: proc { user_signed_in? }
-  before_action :skip_user, if: proc { user_signed_in? && current_user.id == @item.user.id? }
+  before_action :skip_user, if: proc { user_signed_in? && current_user.id == @item.user.id }
 
   def index
     @buy_address = BuyAddress.new
@@ -9,7 +9,7 @@ class BuysController < ApplicationController
       redirect_to root_path 
     end
   end
-  
+
   def create
     @buy_address = BuyAddress.new(buy_params)
     if @buy_address.valid?
