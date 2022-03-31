@@ -1,13 +1,18 @@
 class BuysController < ApplicationController
   before_action :item_set, only: [:index, :create]
-  before_action :skip_user, unless: proc { user_signed_in? }
   before_action :skip_user, if: proc { user_signed_in? && current_user.id == @item.user.id }
 
   def index
     @buy_address = BuyAddress.new
     if @item.buy.present?
       redirect_to root_path 
+      return
     end
+
+    unless user_signed_in?
+      redirect_to root_path 
+    end
+
   end
 
   def create
