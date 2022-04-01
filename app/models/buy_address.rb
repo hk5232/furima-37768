@@ -1,7 +1,7 @@
 class BuyAddress
   include ActiveModel::Model
   attr_accessor :token, :postal_code, :source_id, :address_city, :address_street, :address_building, :phone_number, :item_id,
-                :user_id, :buy_id
+                :user_id
 
   validates :postal_code, presence: { message: 'は必須項目です' },
                           format: { with: /\A\d{3}-\d{4}\z/, allow_blank: true, message: 'は000-0000の形でのみ登録可能です' }
